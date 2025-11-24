@@ -1,5 +1,5 @@
 {
-  "name": "copy-of-copy-of-copy-of-copy-of-hashcare-ai",
+  "name": "hashcare-ai-dashboard",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -17,16 +17,12 @@
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
-<<<<<<< HEAD
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
     "@vitejs/plugin-react": "^5.0.0",
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.32",
     "tailwindcss": "^3.3.6",
-=======
-    "@vitejs/plugin-react": "^5.0.0",
->>>>>>> 6e2d611bf0e0b8b3e276610de398eb797a5f7161
     "typescript": "~5.8.2",
     "vite": "^6.2.0"
   }
