@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 @tailwind base;
@@ -328,3 +329,49 @@
   }
 }
 
+=======
+/* Base styles for dark mode support */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Smooth transitions for theme switching */
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-100 dark:bg-slate-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 dark:bg-slate-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-400 dark:bg-slate-500;
+}
+
+/* Animation delays for ripple effects */
+.animation-delay-200 {
+  animation-delay: 200ms;
+}
+
+/* Focus styles for better accessibility */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  @apply ring-2 ring-brand-500 ring-offset-2 dark:ring-offset-slate-900;
+}
+
+/* Dark mode body styles */
+body {
+  @apply transition-colors duration-300;
+}
+>>>>>>> 6e2d611bf0e0b8b3e276610de398eb797a5f7161

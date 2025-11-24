@@ -2,6 +2,7 @@
 <img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
 </div>
 
+<<<<<<< HEAD
 # HashCare AI - Agentic Healthcare Dashboard
 
 A comprehensive, AI-powered healthcare management platform built for the Mumbai Hacks Agentic AI Hackathon. HashCare AI provides intelligent health monitoring, real-time vitals tracking, emergency assistance, and hospital administration tools powered by Google Gemini AI.
@@ -164,3 +165,21 @@ This project is created for the Mumbai Hacks Agentic AI Hackathon.
 ---
 
 **Built with ❤️ for Mumbai Hacks Agentic AI Hackathon**
+=======
+# Run and deploy your AI Studio app
+
+This contains everything you need to run your app locally.
+
+View your app in AI Studio: https://ai.studio/apps/drive/11-H_VVVn3emt9EfjgBCgk6BdszzFLFyr
+
+## Run Locally
+
+**Prerequisites:**  Node.js
+
+
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`
+>>>>>>> 6e2d611bf0e0b8b3e276610de398eb797a5f7161

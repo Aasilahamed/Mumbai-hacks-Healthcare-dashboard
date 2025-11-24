@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Card, Button } from '../components/Common';
+<<<<<<< HEAD
 import { AlertCircle, Phone, Ambulance, MapPin, CheckCircle, ShieldAlert, Navigation, Clock, Loader2 } from 'lucide-react';
 import { useUser } from '../contexts/UserContext';
 
@@ -31,22 +32,36 @@ export const EmergencySOS: React.FC = () => {
       );
     }
   }, []);
+=======
+import { AlertCircle, Phone, Ambulance, MapPin, CheckCircle, ShieldAlert } from 'lucide-react';
+
+export const EmergencySOS: React.FC = () => {
+  const [active, setActive] = useState(false);
+  const [countdown, setCountdown] = useState(3);
+  const [alertSent, setAlertSent] = useState(false);
+>>>>>>> 6e2d611bf0e0b8b3e276610de398eb797a5f7161
 
   useEffect(() => {
     let interval: ReturnType<typeof setInterval>;
     if (active && countdown > 0) {
       interval = setInterval(() => setCountdown(c => c - 1), 1000);
     } else if (active && countdown === 0) {
+<<<<<<< HEAD
       // Trigger emergency alert
       triggerEmergencyAlert();
       setAlertSent(true);
       setActive(false);
       // Simulate ETA calculation
       setEta(Math.floor(Math.random() * 5) + 5); // 5-10 minutes
+=======
+      setAlertSent(true);
+      setActive(false);
+>>>>>>> 6e2d611bf0e0b8b3e276610de398eb797a5f7161
     }
     return () => clearInterval(interval);
   }, [active, countdown]);
 
+<<<<<<< HEAD
   const triggerEmergencyAlert = () => {
     // In a real app, this would:
     // 1. Send alert to emergency services
@@ -93,6 +108,12 @@ export const EmergencySOS: React.FC = () => {
       setActive(true);
       setCountdown(3);
     }
+=======
+  const handleSOS = () => {
+    if (alertSent) return;
+    setActive(true);
+    setCountdown(3);
+>>>>>>> 6e2d611bf0e0b8b3e276610de398eb797a5f7161
   };
 
   const cancelSOS = () => {
@@ -100,11 +121,14 @@ export const EmergencySOS: React.FC = () => {
     setCountdown(3);
   };
 
+<<<<<<< HEAD
   const resetSOS = () => {
     setAlertSent(false);
     setEta(null);
   };
 
+=======
+>>>>>>> 6e2d611bf0e0b8b3e276610de398eb797a5f7161
   return (
     <div className="max-w-4xl mx-auto space-y-8 text-center pt-10">
         <div className="mb-8">
@@ -165,6 +189,7 @@ export const EmergencySOS: React.FC = () => {
         )}
 
         {alertSent && (
+<<<<<<< HEAD
             <div className="space-y-4">
                 <div className="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-xl p-6 animate-in fade-in slide-in-from-bottom-4">
                     <div className="flex items-center gap-3 mb-3">
@@ -202,6 +227,11 @@ export const EmergencySOS: React.FC = () => {
             <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-4 flex items-center gap-3">
                 <Loader2 className="w-5 h-5 text-blue-600 dark:text-blue-400 animate-spin" />
                 <p className="text-blue-600 dark:text-blue-400 text-sm">Acquiring your location...</p>
+=======
+            <div className="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-xl p-6 animate-in fade-in slide-in-from-bottom-4">
+                <h3 className="text-emerald-800 dark:text-emerald-400 font-bold text-lg">Help is on the way!</h3>
+                <p className="text-emerald-600 dark:text-emerald-300">Ambulance dispatched. ETA: 8 minutes.</p>
+>>>>>>> 6e2d611bf0e0b8b3e276610de398eb797a5f7161
             </div>
         )}
 

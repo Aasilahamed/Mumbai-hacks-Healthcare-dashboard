@@ -1,7 +1,11 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, Badge, Button } from '../components/Common';
 import { 
+<<<<<<< HEAD
   Users, Bed, Activity, DollarSign, AlertTriangle, Clock, Plus, Pill, Satellite, Shield, Zap, Phone, MapPin, Eye
+=======
+  Users, Bed, Activity, DollarSign, AlertTriangle, Clock, Plus, Pill
+>>>>>>> 6e2d611bf0e0b8b3e276610de398eb797a5f7161
 } from 'lucide-react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { useHospital } from '../contexts/HospitalContext';
@@ -15,6 +19,7 @@ const analyticsData = [
   { time: '6pm', patients: 18 },
 ];
 
+<<<<<<< HEAD
 // Mass Emergency Detection System Data
 const emergencyDetectionData = {
   status: 'ACTIVE',
@@ -76,6 +81,10 @@ export const HospitalDashboard: React.FC = () => {
     }, 2000);
     return () => clearInterval(interval);
   }, []);
+=======
+export const HospitalDashboard: React.FC = () => {
+  const { staff, beds, inventory, appointments, alerts, resolveAlert } = useHospital();
+>>>>>>> 6e2d611bf0e0b8b3e276610de398eb797a5f7161
 
   // --- Computed Stats from Context ---
   const doctorsOnDuty = staff.filter(s => s.role === 'Doctor' && s.status === 'On Duty').length;
@@ -121,6 +130,7 @@ export const HospitalDashboard: React.FC = () => {
          ))}
       </div>
 
+<<<<<<< HEAD
       {/* Mass Emergency Detection System */}
       <Card className={`border-2 transition-all duration-500 ${newIncidentAlert ? 'border-red-500 shadow-2xl shadow-red-500/50 animate-pulse' : 'border-red-200 dark:border-red-800'} bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-950/20 dark:to-orange-950/20 relative overflow-hidden`}>
         {/* Scanning Animation Overlay */}
@@ -344,6 +354,8 @@ export const HospitalDashboard: React.FC = () => {
         </CardContent>
       </Card>
 
+=======
+>>>>>>> 6e2d611bf0e0b8b3e276610de398eb797a5f7161
       {/* Main Content Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           
