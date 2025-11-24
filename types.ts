@@ -18,8 +18,12 @@ export enum Page {
   BED_ALLOCATION = 'bed_allocation',
   PHARMACY = 'pharmacy',
   BILLING = 'billing',
+<<<<<<< HEAD
   APPOINTMENTS = 'appointments',
   MULTI_AGENT = 'multi_agent'
+=======
+  APPOINTMENTS = 'appointments'
+>>>>>>> 6e2d611bf0e0b8b3e276610de398eb797a5f7161
 }
 
 export type UserRole = 'patient' | 'admin';

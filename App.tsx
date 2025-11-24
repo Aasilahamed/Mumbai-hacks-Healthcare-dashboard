@@ -8,8 +8,11 @@ import { IoTMonitor } from './pages/IoTMonitor';
 import { EmergencySOS } from './pages/EmergencySOS';
 import { MedicalTracker, InsuranceTracker, MassAlerts, SettingsPage, CommunityPage } from './pages/SecondaryPages';
 import { StaffManagement, BedAllocation, Pharmacy, Billing, Appointments } from './pages/AdminModules';
+<<<<<<< HEAD
 import { MultiAgentCoordination } from './pages/MultiAgentCoordination';
 import { HolographicDoctor } from './pages/HolographicDoctor';
+=======
+>>>>>>> 6e2d611bf0e0b8b3e276610de398eb797a5f7161
 import { Auth } from './pages/Auth';
 import { Page, UserRole } from './types';
 import { Card, CardContent } from './components/Common';
@@ -19,7 +22,14 @@ import { UserProvider, useUser } from './contexts/UserContext';
 const AppContent: React.FC = () => {
   const { isAuthenticated, user, login, logout } = useUser();
   const [currentPage, setCurrentPage] = useState<Page>(Page.DASHBOARD);
+<<<<<<< HEAD
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
+=======
+  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+    const saved = localStorage.getItem('theme');
+    return (saved as 'light' | 'dark') || 'light';
+  });
+>>>>>>> 6e2d611bf0e0b8b3e276610de398eb797a5f7161
 
   useEffect(() => {
     if (theme === 'dark') {
@@ -27,6 +37,10 @@ const AppContent: React.FC = () => {
     } else {
       document.documentElement.classList.remove('dark');
     }
+<<<<<<< HEAD
+=======
+    localStorage.setItem('theme', theme);
+>>>>>>> 6e2d611bf0e0b8b3e276610de398eb797a5f7161
   }, [theme]);
 
   const toggleTheme = () => {
@@ -46,7 +60,10 @@ const AppContent: React.FC = () => {
     if (user?.role === 'admin') {
         switch (currentPage) {
             case Page.ADMIN_DASHBOARD: return <HospitalDashboard />;
+<<<<<<< HEAD
             case Page.MULTI_AGENT: return <MultiAgentCoordination />;
+=======
+>>>>>>> 6e2d611bf0e0b8b3e276610de398eb797a5f7161
             case Page.STAFF_MANAGEMENT: return <StaffManagement />;
             case Page.BED_ALLOCATION: return <BedAllocation />;
             case Page.PHARMACY: return <Pharmacy />;
@@ -61,7 +78,10 @@ const AppContent: React.FC = () => {
     // PATIENT ROUTES
     switch (currentPage) {
       case Page.DASHBOARD: return <Dashboard />;
+<<<<<<< HEAD
       case Page.HOLOGRAPHIC_DOCTOR: return <HolographicDoctor />;
+=======
+>>>>>>> 6e2d611bf0e0b8b3e276610de398eb797a5f7161
       case Page.MAP: return <MapPage />;
       case Page.CHAT: return <HealthAssistant />;
       case Page.IOT_MONITOR: return <IoTMonitor />;
@@ -86,6 +106,11 @@ const AppContent: React.FC = () => {
             onNavigate={setCurrentPage} 
             userRole={user?.role || 'patient'}
             onLogout={logout}
+<<<<<<< HEAD
+=======
+            theme={theme}
+            onToggleTheme={toggleTheme}
+>>>>>>> 6e2d611bf0e0b8b3e276610de398eb797a5f7161
         >
         {renderPage()}
         </Layout>

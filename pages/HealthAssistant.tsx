@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Card } from '../components/Common';
+<<<<<<< HEAD
 import { Send, User, Bot, Sparkles, Loader2, Lightbulb } from 'lucide-react';
 import { getChatResponse, HealthContext } from '../services/geminiService';
 import { Message } from '../types';
@@ -23,6 +24,18 @@ export const HealthAssistant: React.FC = () => {
     "Explain my recent vitals",
     "Help me prepare for my appointment"
   ]);
+=======
+import { Send, User, Bot, Sparkles, Loader2 } from 'lucide-react';
+import { getChatResponse } from '../services/geminiService';
+import { Message } from '../types';
+
+export const HealthAssistant: React.FC = () => {
+  const [messages, setMessages] = useState<Message[]>([
+    { id: '1', role: 'assistant', content: 'Hello Sarah, I am your HashCare Health Companion. How are you feeling today?', timestamp: new Date() }
+  ]);
+  const [input, setInput] = useState('');
+  const [isTyping, setIsTyping] = useState(false);
+>>>>>>> 6e2d611bf0e0b8b3e276610de398eb797a5f7161
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
@@ -31,6 +44,7 @@ export const HealthAssistant: React.FC = () => {
 
   useEffect(scrollToBottom, [messages]);
 
+<<<<<<< HEAD
   // Build health context from user profile
   const buildHealthContext = (): HealthContext => {
     return {
@@ -57,10 +71,17 @@ export const HealthAssistant: React.FC = () => {
       content: messageToSend, 
       timestamp: new Date() 
     };
+=======
+  const handleSend = async () => {
+    if (!input.trim()) return;
+    
+    const userMsg: Message = { id: Date.now().toString(), role: 'user', content: input, timestamp: new Date() };
+>>>>>>> 6e2d611bf0e0b8b3e276610de398eb797a5f7161
     setMessages(prev => [...prev, userMsg]);
     setInput('');
     setIsTyping(true);
 
+<<<<<<< HEAD
     const context = buildHealthContext();
     const responseText = await getChatResponse(messageToSend, context);
     
@@ -70,6 +91,11 @@ export const HealthAssistant: React.FC = () => {
       content: responseText, 
       timestamp: new Date() 
     };
+=======
+    const responseText = await getChatResponse(input);
+    
+    const botMsg: Message = { id: (Date.now() + 1).toString(), role: 'assistant', content: responseText, timestamp: new Date() };
+>>>>>>> 6e2d611bf0e0b8b3e276610de398eb797a5f7161
     setMessages(prev => [...prev, botMsg]);
     setIsTyping(false);
   };
@@ -130,6 +156,7 @@ export const HealthAssistant: React.FC = () => {
         </div>
 
         <div className="p-4 bg-white dark:bg-slate-800 border-t border-slate-100 dark:border-slate-700 rounded-b-2xl">
+<<<<<<< HEAD
             {/* Quick Suggestions */}
             {suggestions.length > 0 && input.length === 0 && (
                 <div className="mb-3 flex flex-wrap gap-2">
@@ -146,11 +173,14 @@ export const HealthAssistant: React.FC = () => {
                 </div>
             )}
             
+=======
+>>>>>>> 6e2d611bf0e0b8b3e276610de398eb797a5f7161
             <div className="flex gap-3">
                 <input 
                     type="text" 
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
+<<<<<<< HEAD
                     onKeyDown={(e) => e.key === 'Enter' && !e.shiftKey && handleSend()}
                     placeholder="Ask about your diet, vitals, symptoms, or medications..." 
                     className="flex-1 bg-slate-50 dark:bg-slate-700 border-slate-200 dark:border-slate-600 border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 dark:text-white transition-all"
@@ -165,6 +195,18 @@ export const HealthAssistant: React.FC = () => {
                     ) : (
                         <Send className="w-5 h-5" />
                     )}
+=======
+                    onKeyDown={(e) => e.key === 'Enter' && handleSend()}
+                    placeholder="Ask about your diet, vitals, or symptoms..." 
+                    className="flex-1 bg-slate-50 dark:bg-slate-700 border-slate-200 dark:border-slate-600 border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 dark:text-white transition-all"
+                />
+                <button 
+                    onClick={handleSend}
+                    disabled={!input.trim() || isTyping}
+                    className="bg-brand-600 hover:bg-brand-700 disabled:bg-slate-300 dark:disabled:bg-slate-600 text-white rounded-xl px-4 py-3 transition-colors shadow-lg shadow-brand-500/20"
+                >
+                    <Send className="w-5 h-5" />
+>>>>>>> 6e2d611bf0e0b8b3e276610de398eb797a5f7161
                 </button>
             </div>
         </div>

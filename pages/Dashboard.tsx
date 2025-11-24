@@ -9,7 +9,11 @@ import {
   AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, 
   BarChart, Bar, Cell, CartesianGrid
 } from 'recharts';
+<<<<<<< HEAD
 import { getDailyTip, getHealthInsights, HealthContext } from '../services/geminiService';
+=======
+import { getDailyTip } from '../services/geminiService';
+>>>>>>> 6e2d611bf0e0b8b3e276610de398eb797a5f7161
 import { useUser } from '../contexts/UserContext';
 
 // --- Mock Data ---
@@ -77,12 +81,16 @@ const StatCard: React.FC<{
 export const Dashboard: React.FC = () => {
   const { user } = useUser();
   const [tip, setTip] = useState("Analyzing biometrics...");
+<<<<<<< HEAD
   const [healthInsight, setHealthInsight] = useState<string | null>(null);
+=======
+>>>>>>> 6e2d611bf0e0b8b3e276610de398eb797a5f7161
   const [greeting, setGreeting] = useState("");
   const [activeTab, setActiveTab] = useState<'activity' | 'heart'>('activity');
   const [currentTime, setCurrentTime] = useState(new Date());
 
   useEffect(() => {
+<<<<<<< HEAD
     // Get daily tip with user context
     const context: HealthContext = {
       age: 45,
@@ -100,6 +108,9 @@ export const Dashboard: React.FC = () => {
     // Get health insights
     getHealthInsights(context.vitals).then(setHealthInsight);
     
+=======
+    getDailyTip().then(setTip);
+>>>>>>> 6e2d611bf0e0b8b3e276610de398eb797a5f7161
     const hr = new Date().getHours();
     if (hr < 12) setGreeting("Good Morning");
     else if (hr < 18) setGreeting("Good Afternoon");
@@ -172,6 +183,7 @@ export const Dashboard: React.FC = () => {
                </div>
                <div className="flex-1">
                   <div className="flex items-center gap-2 mb-2">
+<<<<<<< HEAD
                      <span className="px-2 py-0.5 rounded bg-brand-500/20 border border-brand-500/30 text-brand-300 text-[10px] font-bold uppercase tracking-widest">AI Daily Tip</span>
                      <span className="text-slate-400 text-xs">Just now</span>
                   </div>
@@ -182,6 +194,12 @@ export const Dashboard: React.FC = () => {
                       <p className="text-sm text-slate-200 mt-1">{healthInsight}</p>
                     </div>
                   )}
+=======
+                     <span className="px-2 py-0.5 rounded bg-brand-500/20 border border-brand-500/30 text-brand-300 text-[10px] font-bold uppercase tracking-widest">AI Insight</span>
+                     <span className="text-slate-400 text-xs">Just now</span>
+                  </div>
+                  <p className="text-xl md:text-2xl font-medium leading-relaxed text-slate-100">"{tip}"</p>
+>>>>>>> 6e2d611bf0e0b8b3e276610de398eb797a5f7161
                </div>
                <button className="group/btn flex items-center gap-2 px-5 py-3 bg-white text-slate-900 rounded-xl font-bold text-sm hover:bg-brand-50 transition-colors whitespace-nowrap shadow-lg shadow-white/10">
                   View Analysis
